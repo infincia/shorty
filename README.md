@@ -1,6 +1,6 @@
 ####Shorty
 
-Very simple url shortener written in about 15 minutes, not designed to detect or prevent multiple identical URLs from being shortened to the same short url (perhaps a desirable property for privacy?).
+Very simple url shortener written in about 15 minutes, not designed to ensure that multiple identical URLs are shortened to the same short url (perhaps a desirable property for privacy?).
 
 Make sure to setup the virtualenv and install the right system packages 
 

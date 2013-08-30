@@ -74,6 +74,7 @@ def index():
 
 
 @shorty.get('/u/<short_url_id>')
+@shorty.get('/u/<short_url_id>/')
 def redirect_long_url(short_url_id):
     long_url = get_long_url(short_url_id)
     if long_url is not None:
