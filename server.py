@@ -4,6 +4,7 @@ import platform
 import json
 import time
 import logging
+import re
 from operator import itemgetter
 
 # pip packages
@@ -91,8 +92,24 @@ def submit_long_url():
         short_url_id = save_long_url(long_url)
         return { 'success': True, 'short_url_id': short_url_id }
     else:
-        # return a json dict with key 'success' set to false so javascript can show an error
         return { 'success': False }
+
+# resolv API for short id or url (depending on which form is requested), shorty.js doesn't use this
+@shorty.get('/api/url/resolve')
+def resolv_short_url():
+    submission_data = json.loads(bottle.request.body.readline())
+    short_url_id = submission_data.get('short_url_id', None)
+    short_url = submission_data.get('short_url', None)
+    long_url = None
+    if short_url_id is not None:
+        long_url = get_long_url(short_url_id)
+    if short_url is not None:
+        match = re.search(r'.+/u/(?P<short_url_id>.+)', short_url)
+        short_url_id = match.group('short_url_id')
+        long_url = get_long_url(short_url_id)
+    if long_url is not None:
+        return { 'success': True, 'long_url': long_url }
+    return { 'success': False }
 
 
 # comment this line out if running under gunicorn
