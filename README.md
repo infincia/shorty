@@ -55,11 +55,13 @@ The backend is organized as an html+js interface, and a separate set of json API
 Note: where multiple elements or values of a request or response are possible, a single pipe '|' character implies 'or'
 
     Endpoint: /api/url/submit
+    HTTP method: POST
     Request:  JSON { 'url': 'http://google.com' }
     Response: JSON { 'success': true|false, 'short_url_id': 'LhKWdeNp' }
-    
+
 
     Endpoint: /api/url/resolve
+    HTTP method: GET
     Request:  JSON { 'short_url': 'http://mysite.com/u/LhKWdeNp' | 'short_url_id': 'LhKWdeNp' }
     Response: JSON { 'success': true|false, 'url': 'http://google.com' }
 
