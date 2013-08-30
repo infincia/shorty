@@ -1,0 +1,17 @@
+{% include "header.html" %}
+
+        <div id="main">
+            <div id="submit">
+                <div class="input-prepend">
+                    <span class="add-on">URL</span>
+                    <input type="text" class="input-block-level value" name="urlfield" id="urlfield" placeholder="enter url here"/>
+                </div>
+                <br/>
+                <button type="button" id="submitbutton" class="btn btn-primary" name="save" data-loading-text="Submitting..." onclick="save_long_url();">Submit</button>
+            </div>
+            <div id="short_url"></div>
+            <div id="error"></div>
+        </div>
+
+
+{% include "footer.html" %}
