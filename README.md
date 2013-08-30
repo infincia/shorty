@@ -50,16 +50,16 @@ To do that, disable Bottles development server in setup.py (near end of file), u
 
 
 ####API
-T
 The backend is organized as an html+js interface, and a separate set of json API endpoints. The API could be called from somewhere other than the html+js included with the project if someone found that to be useful.
 
-Note: where multiple values of a request or response are possible, a single pipe '|' character implies 'or'
+Note: where multiple elements or values of a request or response are possible, a single pipe '|' character implies 'or'
 
     Endpoint: /api/url/submit
-    Request: JSON{ 'url': 'http://google.com' }
-    Response: JSON{ 'success': true|false, 'short_url_id': 'LhKWdeNp' }
+    Request:  JSON { 'url': 'http://google.com' }
+    Response: JSON { 'success': true|false, 'short_url_id': 'LhKWdeNp' }
     
+
     Endpoint: /api/url/resolve
-    Request: JSON{ 'short_url': 'http://mysite.com/u/LhKWdeNp' | 'short_url_id': 'LhKWdeNp' }
-    Response: JSON{ 'success': true|false, 'url': 'http://google.com' }
+    Request:  JSON { 'short_url': 'http://mysite.com/u/LhKWdeNp' | 'short_url_id': 'LhKWdeNp' }
+    Response: JSON { 'success': true|false, 'url': 'http://google.com' }
 
