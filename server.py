@@ -37,6 +37,7 @@ INDEX_TEMPLATE = jinja_environment.get_template('index.html')
 def save_long_url(long_url):
     try:
         short_url_id = shortuuid.uuid()[:8]
+        memcache_client.check_key(self, short_url_id)
         memcache_client.set(short_url_id, long_url)
         return short_url_id
     except Exception as local_exception:
